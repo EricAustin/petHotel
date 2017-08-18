@@ -19,6 +19,9 @@ app.controller('PetHotelController', ['$http', function ($http) {
     } // getOwners end
 
 
+    self.getOwners();
+
+
 
 
 }]) // controller end
