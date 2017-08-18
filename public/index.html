@@ -5,8 +5,11 @@
     <title>
         Owners and Pets
     </title>
+    <script src="vendors/angular.min.js"></script>
+    <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
   </head>
-  <body ng-app="PetHotelApp">
+  <body ng-app="PetHotelApp" ng-controller="PetHotelController as vm">
       <h1>Owners and Pets</h1>
       <h3>Owner Registration</h3>
       <div id = "ownerRegistrationInputsAndButtons">
@@ -25,7 +28,7 @@
 
         <label>Owner Name
         <select>
-        <option ng-repeat="x in names">{{x}}</option>
+        <option ng-repeat="x in vm.names">{{x}}</option>
         </select>
         </label>
         <label>Pet Name<input type ="text" placeholder="PetName"></label> 
