@@ -21,8 +21,18 @@ app.controller('PetHotelController', ['$http', function ($http) {
 
     self.getOwners();
 
+    self.pets=[];
+    self.getPets = function () {
+        $http({
+            method: 'GET',
+            url: '/pets'
+        }).then(function(response) {
+            console.log('response.data');
+            self.pets = response.data;
+        })  //then end
+    } // getpets end
 
-
+self.getPets();
 
 }]) // controller end
 
