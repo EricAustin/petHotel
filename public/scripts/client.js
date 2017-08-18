@@ -6,9 +6,7 @@ app.controller('PetHotelController', ['$http', function ($http) {
     console.log('Pet Hotel Controller loaded');
     var self = this;
 
-    self.names = ["Emil", "Tobias", "Linus"];
-
-
+    this.names = ["Emil", "Tobias", "Linus"];
 
 
 }])
