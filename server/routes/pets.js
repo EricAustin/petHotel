@@ -32,7 +32,7 @@ router.get('/', function (req, res) {
             console.log('Error connecting to database', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query('SELECT * FROM pets;', function (errorMakingQuery, result) {
+            client.query('SELECT owners.first_name, owners.last_name, pets.breed, pets.color, visits.check_in_date, visits.check_out_date FROM visits LEFT OUTER JOIN pets ON visits.pet_id = pets.id LEFT OUTER JOIN owners ON pets.owner_id = owners.id;', function (errorMakingQuery, result) {
                 done();
                 if (errorMakingQuery) {
                     console.log('Error making database query', errorMakingQuery);
