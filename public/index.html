@@ -50,19 +50,14 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="x in vm.pets">
-			<th>{{pets.first_name}} {{pets.last_name}}</th>
-			<th>{{pets.name}}</th>
-            <th>{{pets.breed}}</th>
-            <th>{{pets.color}}<th>
-            <th><button id='+{{pets.id}}+'>Edit</button><th>
-            <th><button id='+{{pets.id}}+'>Delete</button><th>
-            <th><button id='+{{pets.id}}+'>in/out</button><th>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
+		<tr ng-repeat="table in vm.pets">
+			<th>{{table.first_name}} {{table.last_name}}</th>
+			<th>{{table.name}}</th>
+            <th>{{table.breed}}</th>
+            <th>{{table.color}}<th>
+            <th><button id='editButton{{table.id}}'>Edit</button><th>
+            <th><button id='deleteButton{{table.id}}'>Delete</button><th>
+            <th><button id='inOutButton{{table.id}}'>in/out</button><th>
 		</tr>
 	</tbody>
 </table>
