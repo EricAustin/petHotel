@@ -6,14 +6,11 @@ var pool = require('../modules/pool');
 
 router.post('/', function (req, res) {
     console.log('owner post');
-    // Add an INSERT query
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
-            // when connecting to database failed
             console.log('Error connecting to database', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            // when connecting to database worked!
             client.query('INSERT INTO owners (first_name, last_name) VALUES ($1, $2);', [req.body.first_name, req.body.last_name], function (errorMakingQuery, result) {
                 done();
                 if (errorMakingQuery) {

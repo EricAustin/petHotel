@@ -5,16 +5,14 @@ var router = express.Router();
 var pool = require('../modules/pool');
 
 router.post('/', function (req, res) {
+    var ownerId = req.params.id;
     console.log('pet post');
-    // Add an INSERT query
     pool.connect(function (errorConnectingToDatabase, client, done) {
         if (errorConnectingToDatabase) {
-            // when connecting to database failed
             console.log('Error connecting to database', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            // when connecting to database worked!
-            client.query('INSERT INTO pets (first_name, last_name) VALUES ($1, $2);', [req.body.first_name, req.body.last_name], function (errorMakingQuery, result) {
+            client.query('INSERT INTO pets (name, breed, color, owner_id) VALUES ($1, $2, $3, $4);', [req.body.name, req.body.breed, req.body.color, ownerId], function (errorMakingQuery, result) {
                 done();
                 if (errorMakingQuery) {
                     console.log('Error making database query', errorMakingQuery);
