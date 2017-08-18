@@ -13,7 +13,7 @@ app.controller('PetHotelController', ['$http', function ($http) {
             method: 'GET',
             url: '/owners'
         }).then(function(response) {
-            console.log('response.data');
+            console.log(response.data);
             self.names = response.data;
         })  //then end
     } // getOwners end
